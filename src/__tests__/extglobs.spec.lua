@@ -1,14 +1,10 @@
 -- ROBLOX upstream: https://github.com/micromatch/picomatch/tree/2.3.1/test/extglobs.js
 
 return function()
-	local CurrentModule = script.Parent
-	local PicomatchModule = CurrentModule.Parent
-	local Packages = PicomatchModule.Parent
+	local jestExpect = require("@pkg/@jsdotlua/jest-globals").expect
 
-	local jestExpect = require(Packages.Dev.JestGlobals).expect
-
-	local match = require(CurrentModule.support.match)
-	local Picomatch = require(PicomatchModule)
+	local match = require("./support/match")
+	local Picomatch = require("../init")
 	local isMatch, makeRe = Picomatch.isMatch, Picomatch.makeRe
 	--[[*
 	 * Ported from Bash 4.3 and 4.4 unit tests

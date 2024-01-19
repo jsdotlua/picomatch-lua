@@ -1,10 +1,7 @@
 -- ROBLOX upstream: https://github.com/micromatch/picomatch/tree/2.3.1/test/brackets.js
 
 return function()
-	local CurrentModule = script.Parent
-	local PicomatchModule = CurrentModule.Parent
-
-	local isMatch = require(PicomatchModule).isMatch
+	local isMatch = require("../init").isMatch
 	describe("brackets", function()
 		describe("trailing stars", function()
 			itFIXME("should support stars following brackets", function()

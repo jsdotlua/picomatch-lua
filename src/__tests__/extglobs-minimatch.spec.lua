@@ -1,11 +1,8 @@
 -- ROBLOX upstream: https://github.com/micromatch/picomatch/tree/2.3.1/test/extglobs-minimatch.js
 
 return function()
-	local CurrentModule = script.Parent
-	local PicomatchModule = CurrentModule.Parent
-
-	local support = require(CurrentModule.support)
-	local isMatch = require(PicomatchModule).isMatch
+	local support = require("./support")
+	local isMatch = require("../init").isMatch
 	--[[*
 	 * Some of tests were converted from bash 4.3, 4.4, and minimatch unit tests.
 	 ]]

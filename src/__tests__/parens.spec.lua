@@ -1,10 +1,7 @@
 -- ROBLOX upstream: https://github.com/micromatch/picomatch/tree/2.3.1/test/parens.js
 
 return function()
-	local CurrentModule = script.Parent
-	local PicomatchModule = CurrentModule.Parent
-
-	local isMatch = require(PicomatchModule).isMatch
+	local isMatch = require("../init").isMatch
 	describe("parens (non-extglobs)", function()
 		it("should support stars following parens", function()
 			assert(isMatch("a", "(a)*"))

@@ -1,10 +1,7 @@
 -- ROBLOX upstream: https://github.com/micromatch/picomatch/tree/2.3.1/test/issue-related.js
 
 return function()
-	local CurrentModule = script.Parent
-	local PicomatchModule = CurrentModule.Parent
-
-	local isMatch = require(PicomatchModule).isMatch
+	local isMatch = require("../init").isMatch
 	describe("issue-related tests", function()
 		it("should match with braces (see picomatch/issues#8)", function()
 			assert(isMatch("directory/.test.txt", "{file.txt,directory/**/*}", { dot = true }))

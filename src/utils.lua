@@ -1,8 +1,6 @@
 -- ROBLOX upstream: https://github.com/micromatch/picomatch/tree/2.3.1/lib/utils.js
 
-local CurrentModule = script.Parent
-local Packages = CurrentModule.Parent
-local LuauPolyfill = require(Packages.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Array = LuauPolyfill.Array
 local Boolean = LuauPolyfill.Boolean
 local String = LuauPolyfill.String
@@ -15,7 +13,7 @@ local exports = {}
 -- ROBLOX FIXME: make proper platform check
 -- local win32 = process.platform == "win32"
 local win32 = false
-local Constants = require(CurrentModule.constants)
+local Constants = require("./constants")
 -- ROBLOX TODO START: implement missing RegExp when 'g' flag available (or reimplement without RegExp)
 local REGEX_SPECIAL_CHARS = Constants.REGEX_SPECIAL_CHARS
 -- local REGEX_BACKSLASH, REGEX_REMOVE_BACKSLASH, REGEX_SPECIAL_CHARS, REGEX_SPECIAL_CHARS_GLOBAL =
@@ -35,7 +33,7 @@ function exports.isRegexChar(str: string)
 	return #str == 1 and exports.hasRegexChars(str)
 end
 -- ROBLOX deviation START: additional dependencies
-local String_replace = require(CurrentModule.stringUtils).stringReplace
+local String_replace = require("./stringUtils").stringReplace
 -- ROBLOX deviation END
 
 function exports.escapeRegex(str): string

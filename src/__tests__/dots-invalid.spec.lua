@@ -1,10 +1,7 @@
 -- ROBLOX upstream: https://github.com/micromatch/picomatch/tree/2.3.1/test/dots-invalid.js
 
 return function()
-	local CurrentModule = script.Parent
-	local PicomatchModule = CurrentModule.Parent
-
-	local isMatch = require(PicomatchModule).isMatch
+	local isMatch = require("../init").isMatch
 	describe("invalid (exclusive) dots", function()
 		describe("double dots", function()
 			describe("no options", function()

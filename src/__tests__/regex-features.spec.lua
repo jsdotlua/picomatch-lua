@@ -1,16 +1,13 @@
 -- ROBLOX upstream: https://github.com/micromatch/picomatch/tree/2.3.1/test/regex-features.js
 
 return function()
-	local CurrentModule = script.Parent
-	local PicomatchModule = CurrentModule.Parent
-	local Packages = PicomatchModule.Parent
-	local LuauPolyfill = require(Packages.LuauPolyfill)
+	local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 	local Boolean = LuauPolyfill.Boolean
 	-- ROBLOX deviation: not supported in Lua
 	-- local version = process.version
 
-	local utils = require(PicomatchModule.utils)
-	local isMatch = require(PicomatchModule).isMatch
+	local utils = require("../utils")
+	local isMatch = require("../init").isMatch
 	describe("regex features", function()
 		describe("word boundaries", function()
 			itFIXME("should support word boundaries", function()

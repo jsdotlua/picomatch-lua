@@ -1,15 +1,11 @@
 -- ROBLOX upstream: https://github.com/micromatch/picomatch/tree/2.3.1/test/posix-classes.js
 
 return function()
-	local CurrentModule = script.Parent
-	local PicomatchModule = CurrentModule.Parent
-	local Packages = PicomatchModule.Parent
+	local RegExp = require("@pkg/luau-regexp")
 
-	local RegExp = require(Packages.RegExp)
+	local jestExpect = require("@pkg/@jsdotlua/jest-globals").expect
 
-	local jestExpect = require(Packages.Dev.JestGlobals).expect
-
-	local pm = require(PicomatchModule)
+	local pm = require("../init")
 	local makeRe, parse = pm.makeRe, pm.parse
 	local opts = { strictSlashes = true, posix = true, regex = true }
 	local function isMatch(...: any)

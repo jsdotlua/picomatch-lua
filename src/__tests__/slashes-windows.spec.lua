@@ -1,11 +1,8 @@
 -- ROBLOX upstream: https://github.com/micromatch/picomatch/tree/2.3.1/test/slashes-windows.js
 
 return function()
-	local CurrentModule = script.Parent
-	local PicomatchModule = CurrentModule.Parent
-
-	local support = require(CurrentModule.support)
-	local Picomatch = require(PicomatchModule)
+	local support = require("./support")
+	local Picomatch = require("../init")
 	local isMatch, makeRe = Picomatch.isMatch, Picomatch.makeRe
 	describe("slash handling - windows", function()
 		beforeEach(function()

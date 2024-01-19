@@ -1,18 +1,15 @@
 -- ROBLOX upstream: https://github.com/micromatch/picomatch/tree/2.3.1/test/options.js
 
 return function()
-	local CurrentModule = script.Parent
-	local PicomatchModule = CurrentModule.Parent
-	local Packages = PicomatchModule.Parent
-	local LuauPolyfill = require(Packages.LuauPolyfill)
+	local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 	local Array = LuauPolyfill.Array
 	local Object = LuauPolyfill.Object
 
-	local jestExpect = require(Packages.Dev.JestGlobals).expect
+	local jestExpect = require("@pkg/@jsdotlua/jest-globals").expect
 
-	local support = require(CurrentModule.support)
-	local match = require(CurrentModule.support.match)
-	local isMatch = require(PicomatchModule).isMatch
+	local support = require("./support")
+	local match = require("./support/match")
+	local isMatch = require("../init").isMatch
 	describe("options", function()
 		beforeEach(function()
 			return support.windowsPathSep()

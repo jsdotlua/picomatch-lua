@@ -1,16 +1,12 @@
 -- ROBLOX upstream: https://github.com/micromatch/picomatch/tree/2.3.1/test/dotfiles.js
 
 return function()
-	local CurrentModule = script.Parent
-	local PicomatchModule = CurrentModule.Parent
-	local Packages = PicomatchModule.Parent
+	local jestExpect = require("@pkg/@jsdotlua/jest-globals").expect
 
-	local jestExpect = require(Packages.Dev.JestGlobals).expect
+	local Promise = require("@pkg/@jsdotlua/promise")
 
-	local Promise = require(Packages.Promise)
-
-	local match = require(CurrentModule.support.match)
-	local isMatch = require(PicomatchModule).isMatch
+	local match = require("./support/match")
+	local isMatch = require("../init").isMatch
 	describe("dotfiles", function()
 		describe("normal", function()
 			itFIXME("should not match dotfiles by default:", function()
