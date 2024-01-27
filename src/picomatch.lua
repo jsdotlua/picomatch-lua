@@ -1,8 +1,6 @@
 -- ROBLOX upstream: https://github.com/micromatch/picomatch/tree/2.3.1/lib/picomatch.js
 
-local CurrentModule = script.Parent
-local Packages = CurrentModule.Parent
-local LuauPolyfill = require(Packages.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Array = LuauPolyfill.Array
 local Boolean = LuauPolyfill.Boolean
 local Error = LuauPolyfill.Error
@@ -10,15 +8,15 @@ local Object = LuauPolyfill.Object
 type Array<T> = LuauPolyfill.Array<T>
 type Object = LuauPolyfill.Object
 
-local RegExp = require(Packages.RegExp)
+local RegExp = require("@pkg/luau-regexp")
 type RegExp = RegExp.RegExp
 
 -- ROBLOX deviation: skipping path
 -- local path = require("path")
-local scan = require(CurrentModule.scan)
-local parse = require(CurrentModule.parse)
-local utils = require(CurrentModule.utils)
-local constants = require(CurrentModule.constants)
+local scan = require("./scan")
+local parse = require("./parse")
+local utils = require("./utils")
+local constants = require("./constants")
 local function isObject(val)
 	return typeof(val) == "table" and not Array.isArray(val)
 end

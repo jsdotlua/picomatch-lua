@@ -1,21 +1,19 @@
 -- ROBLOX upstream: https://github.com/micromatch/picomatch/tree/2.3.1/lib/parse.js
 
-local CurrentModule = script.Parent
-local Packages = CurrentModule.Parent
-local LuauPolyfill = require(Packages.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Array = LuauPolyfill.Array
 local Boolean = LuauPolyfill.Boolean
 local Error = LuauPolyfill.Error
 local Object = LuauPolyfill.Object
 local String = LuauPolyfill.String
-local String_replace = require(CurrentModule.stringUtils).stringReplace
+local String_replace = require("./stringUtils").stringReplace
 type Token = Object
 type Object = LuauPolyfill.Object
 type Array<T> = LuauPolyfill.Array<T>
 
-local RegExp = require(Packages.RegExp)
-local constants = require(CurrentModule.constants)
-local utils = require(CurrentModule.utils)
+local RegExp = require("@pkg/luau-regexp")
+local constants = require("./constants")
+local utils = require("./utils")
 
 --[[*
  * Constants

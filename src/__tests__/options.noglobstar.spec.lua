@@ -1,10 +1,7 @@
 -- ROBLOX upstream: https://github.com/micromatch/picomatch/tree/2.3.1/test/options.noglobstar.js
 
 return function()
-	local CurrentModule = script.Parent
-	local PicomatchModule = CurrentModule.Parent
-
-	local isMatch = require(PicomatchModule).isMatch
+	local isMatch = require("../init").isMatch
 	describe("options.noglobstar", function()
 		it("should disable extglob support when options.noglobstar is true", function()
 			assert(isMatch("a/b/c", "**", { noglobstar = false }))

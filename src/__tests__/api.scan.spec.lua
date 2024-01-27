@@ -1,12 +1,9 @@
 -- ROBLOX upstream: https://github.com/micromatch/picomatch/tree/2.3.1/test/api.scan.js
 
 return function()
-	local CurrentModule = script.Parent
-	local PicomatchModule = CurrentModule.Parent
-	local Packages = PicomatchModule.Parent
-	local scan = require(PicomatchModule.scan)
+	local scan = require("../scan")
 
-	local jestExpect = require(Packages.Dev.JestGlobals).expect
+	local jestExpect = require("@pkg/@jsdotlua/jest-globals").expect
 
 	local function base(...: any)
 		return scan(...).base

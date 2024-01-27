@@ -1,17 +1,13 @@
 -- ROBLOX upstream: https://github.com/micromatch/picomatch/tree/2.3.1/test/special-characters.js
 
 return function()
-	local CurrentModule = script.Parent
-	local PicomatchModule = CurrentModule.Parent
-	local Packages = PicomatchModule.Parent
-
-	local jestExpect = require(Packages.Dev.JestGlobals).expect
+	local jestExpect = require("@pkg/@jsdotlua/jest-globals").expect
 
 	-- ROBLOX deviation START: not supported in Lua
 	-- local path = require("path")
 
-	local support = require(CurrentModule.support)
-	local Picomatch = require(PicomatchModule)
+	local support = require("./support")
+	local Picomatch = require("../init")
 	local isMatch, makeRe = Picomatch.isMatch, Picomatch.makeRe
 	describe("special characters", function()
 		beforeAll(function()

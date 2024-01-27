@@ -1,17 +1,14 @@
 -- ROBLOX upstream: https://github.com/micromatch/picomatch/tree/2.3.1/test/options.onMatch.js
 
 return function()
-	local CurrentModule = script.Parent
-	local PicomatchModule = CurrentModule.Parent
-	local Packages = PicomatchModule.Parent
-	local LuauPolyfill = require(Packages.LuauPolyfill)
+	local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 	local Array = LuauPolyfill.Array
 	local String = LuauPolyfill.String
 
-	local jestExpect = require(Packages.Dev.JestGlobals).expect
+	local jestExpect = require("@pkg/@jsdotlua/jest-globals").expect
 
-	local match = require(CurrentModule.support.match)
-	local picomatch = require(PicomatchModule)
+	local match = require("./support/match")
+	local picomatch = require("../init")
 	local isMatch = picomatch.isMatch
 	local function equal(actual, expected)
 		jestExpect(Array.sort(Array.concat({}, actual))).toEqual(

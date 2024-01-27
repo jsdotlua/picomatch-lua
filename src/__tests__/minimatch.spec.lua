@@ -1,13 +1,10 @@
 -- ROBLOX upstream: https://github.com/micromatch/picomatch/tree/2.3.1/test/minimatch.js
 
 return function()
-	local CurrentModule = script.Parent
-	local PicomatchModule = CurrentModule.Parent
-
 	local function format(str)
 		return str:gsub("^%./", "", 1)
 	end
-	local Picomatch = require(PicomatchModule)
+	local Picomatch = require("../init")
 	local isMatch, makeRe = Picomatch.isMatch, Picomatch.makeRe
 	describe("minimatch parity:", function()
 		describe("minimatch issues (as of 12/7/2016)", function()

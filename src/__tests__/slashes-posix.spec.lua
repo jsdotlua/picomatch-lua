@@ -1,11 +1,8 @@
 -- ROBLOX upstream: https://github.com/micromatch/picomatch/tree/2.3.1/test/slashes-poxix.js
 
 return function()
-	local CurrentModule = script.Parent
-	local PicomatchModule = CurrentModule.Parent
-
-	local support = require(CurrentModule.support)
-	local isMatch = require(PicomatchModule).isMatch
+	local support = require("./support")
+	local isMatch = require("../init").isMatch
 	describe("slash handling - posix", function()
 		beforeAll(function()
 			return support.resetPathSep()

@@ -1,16 +1,12 @@
 -- ROBLOX upstream: https://github.com/micromatch/picomatch/tree/2.3.1/test/braces.js
 
 return function()
-	local CurrentModule = script.Parent
-	local PicomatchModule = CurrentModule.Parent
-	local Packages = PicomatchModule.Parent
-
-	local jestExpect = require(Packages.Dev.JestGlobals).expect
+	local jestExpect = require("@pkg/@jsdotlua/jest-globals").expect
 
 	-- ROBLOX deviation: not supported in Lua
 	-- local fill = require("fill-range")
-	local match = require(CurrentModule.support.match)
-	local isMatch = require(PicomatchModule).isMatch
+	local match = require("./support/match")
+	local isMatch = require("../init").isMatch
 	describe("braces", function()
 		itFIXME("should not match with brace patterns when disabled", function()
 			jestExpect(match({ "a", "b", "c" }, "{a,b,c,d}")).toEqual({ "a", "b", "c" })

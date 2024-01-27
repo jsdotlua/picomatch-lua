@@ -1,13 +1,9 @@
 -- ROBLOX upstream: https://github.com/micromatch/picomatch/tree/2.3.1/test/malicious.js
 
 return function()
-	local CurrentModule = script.Parent
-	local PicomatchModule = CurrentModule.Parent
-	local Packages = PicomatchModule.Parent
+	local jestExpect = require("@pkg/@jsdotlua/jest-globals").expect
 
-	local jestExpect = require(Packages.Dev.JestGlobals).expect
-
-	local isMatch = require(PicomatchModule).isMatch
+	local isMatch = require("../init").isMatch
 	local function repeat_(n)
 		return string.rep("\\", n)
 	end

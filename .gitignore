@@ -13,6 +13,9 @@ Packages/*
 !Packages/.robloxrc
 .DS_Store
 debug.log
+**/node_modules
+.yarn
+
 
 # IDEs and editors
 /.idea
@@ -41,3 +44,6 @@ debug.log
 .vscode/launch.json
 cachegrind.out.*
 callgrind.out.*
+**/sourcemap.json
+/build
+/roblox

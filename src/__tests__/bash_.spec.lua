@@ -1,10 +1,7 @@
 -- ROBLOX upstream: https://github.com/micromatch/picomatch/tree/2.3.1/test/bash.js
 
 return function()
-	local CurrentModule = script.Parent
-	local PicomatchModule = CurrentModule.Parent
-
-	local isMatch = require(PicomatchModule).isMatch
+	local isMatch = require("../init").isMatch
 	-- $echo a/{1..3}/b
 	describe("from the Bash 4.3 spec/unit tests", function()
 		itFIXME('should handle "regular globbing"', function()

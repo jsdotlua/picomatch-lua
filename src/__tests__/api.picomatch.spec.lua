@@ -1,15 +1,12 @@
 -- ROBLOX upstream: https://github.com/micromatch/picomatch/tree/2.3.1/test/api.picomatch.js
 
 return function()
-	local CurrentModule = script.Parent
-	local PicomatchModule = CurrentModule.Parent
-	local Packages = PicomatchModule.Parent
-	local LuauPolyfill = require(Packages.LuauPolyfill)
+	local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 	local Array = LuauPolyfill.Array
 
-	local jestExpect = require(Packages.Dev.JestGlobals).expect
+	local jestExpect = require("@pkg/@jsdotlua/jest-globals").expect
 
-	local picomatch = require(PicomatchModule)
+	local picomatch = require("../init")
 	local isMatch = picomatch.isMatch
 	local function assertTokens(actual, expected)
 		local keyValuePairs = Array.map(actual, function(token)

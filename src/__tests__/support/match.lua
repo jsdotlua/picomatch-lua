@@ -1,15 +1,12 @@
 -- ROBLOX upstream: https://github.com/micromatch/picomatch/tree/2.3.1/test/support/match.js
 
-local CurrentModule = script.Parent
-local PicomatchModule = CurrentModule.Parent.Parent
-local Packages = PicomatchModule.Parent
-local LuauPolyfill = require(Packages.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Boolean = LuauPolyfill.Boolean
 local Set = LuauPolyfill.Set
 
 type Object = LuauPolyfill.Object
 
-local picomatch = require(PicomatchModule)
+local picomatch = require("../../init")
 
 return function(list, pattern, options_: Object?)
 	local options: Object = options_ or {}
